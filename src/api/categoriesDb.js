@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const productsDb = axios.create({
+export const categoriesDb = axios.create({
     baseURL: 'https://techstore-rest-api.vercel.app'
 })
 
-export default productsDb;
+export default categoriesDb;
