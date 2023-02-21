@@ -1,4 +1,4 @@
-import {  ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native'
+import {  ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { useProducts } from '../hooks/useProducts';
 import { useCategories } from '../hooks/useCategories';
 
@@ -20,32 +20,34 @@ export const HomeScreen = () => {
     }
 
     return (
-        <ScrollView showsVerticalScrollIndicator={ false }>
-            <View style={{ marginBottom:20 }}>
-                <Text style={ styles.title }>Tech Store</Text>
-                <SearchForm/>
-            </View>
-
-
-            <View style={{ marginBottom:20 }}>
-                <Text style={{...styles.title, marginBottom:5 }}>Categorias</Text>
-                <View style={ styles.categoriesList}>
-                    {
-                        categories.map( category  => ( 
-                            <ButtonCategorie key={ category.id }  category={ category }/> 
-                            ))
-                        }
+        <SafeAreaView style={{ flex:1, paddingTop:50, paddingHorizontal:15 }}>
+            <ScrollView showsVerticalScrollIndicator={ false }>
+                <View style={{ marginBottom:20 }}>
+                    <Text style={ styles.title }>Tech Store</Text>
+                    <SearchForm/>
                 </View>
-            </View>
 
-            <View style={ styles.productTitleContainer }>
-                <Text style={{ fontSize:20, fontWeight:'600' }}>
-                    Todos los productos
-                </Text>
-            </View>
-            <ListProducts products={ products }/>
 
-        </ScrollView>
+                <View style={{ marginBottom:20 }}>
+                    <Text style={{...styles.title, marginBottom:5 }}>Categorias</Text>
+                    <View style={ styles.categoriesList}>
+                        {
+                            categories.map( category  => ( 
+                                <ButtonCategorie key={ category.id }  category={ category }/> 
+                                ))
+                            }
+                    </View>
+                </View>
+
+                <View style={ styles.productTitleContainer }>
+                    <Text style={{ fontSize:20, fontWeight:'600' }}>
+                        Todos los productos
+                    </Text>
+                </View>
+                <ListProducts products={ products }/>
+
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
